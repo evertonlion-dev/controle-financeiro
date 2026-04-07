@@ -1,0 +1,22 @@
+body {
+  font-family: Arial;
+  background-color: #121212;
+  color: white;
+  text-align: center;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
