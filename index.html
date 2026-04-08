@@ -8,18 +8,26 @@
 </head>
 <body>
 
+<div class="container">
+
   <h1>Controle Financeiro 💰</h1>
 
   <input type="text" id="desc" placeholder="Descrição">
   <input type="number" id="value" placeholder="Valor">
-  
-  <button onclick="addIncome()">Entrada</button>
-  <button onclick="addExpense()">Saída</button>
 
-  <h2>Saldo: R$ <span id="balance">0</span></h2>
+  <div class="buttons">
+    <button class="income" onclick="addIncome()">Entrada</button>
+    <button class="expense" onclick="addExpense()">Saída</button>
+  </div>
+
+  <div class="balance">
+    Saldo: R$ <span id="balance">0</span>
+  </div>
 
   <ul id="list"></ul>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
