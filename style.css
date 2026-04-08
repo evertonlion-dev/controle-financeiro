@@ -1,11 +1,16 @@
 body {
   font-family: Arial;
-  background-color: #121212;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
   color: white;
   text-align: center;
+  padding: 20px;
 }
 
-input, button {
+h1 {
+  margin-bottom: 20px;
+}
+
+input {
   padding: 10px;
   margin: 5px;
   border-radius: 8px;
@@ -13,10 +18,26 @@ input, button {
 }
 
 button {
-  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
   font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 ul {
   list-style: none;
+  padding: 0;
+}
+
+li {
+  background: rgba(255,255,255,0.1);
+  margin: 10px auto;
+  padding: 10px;
+  width: 250px;
+  border-radius: 8px;
 }

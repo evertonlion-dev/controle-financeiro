@@ -1,4 +1,4 @@
-let transactions = [];
+let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
 function addIncome() {
   addTransaction("entrada");
@@ -15,6 +15,8 @@ function addTransaction(type) {
   if (!desc || !value) return;
 
   transactions.push({ desc, value, type });
+
+  saveData();
   update();
 }
 
@@ -25,7 +27,7 @@ function update() {
   list.innerHTML = "";
   let balance = 0;
 
-  transactions.forEach(t => {
+  transactions.forEach((t, index) => {
     const li = document.createElement("li");
 
     if (t.type === "entrada") {
@@ -36,8 +38,23 @@ function update() {
       balance -= t.value;
     }
 
+    const btn = document.createElement("button");
+    btn.textContent = "❌";
+    btn.onclick = () => {
+      transactions.splice(index, 1);
+      saveData();
+      update();
+    };
+
+    li.appendChild(btn);
     list.appendChild(li);
   });
 
   balanceEl.textContent = balance;
 }
+
+function saveData() {
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+}
+
+update();
