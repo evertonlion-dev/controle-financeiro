@@ -23,6 +23,7 @@ function addTransaction(type) {
 function update() {
   const list = document.getElementById("list");
   const balanceEl = document.getElementById("balance");
+  
 
   list.innerHTML = "";
   let balance = 0;
@@ -51,15 +52,15 @@ function update() {
   });
 
   balanceEl.textContent = balance;
+
+  if (balance >= 0) {
+  balanceEl.style.color = "#00e676";
+} else {
+  balanceEl.style.color = "#ff5252";
+}
 }
 
 function saveData() {
   localStorage.setItem("transactions", JSON.stringify(transactions));
-}
-
-if (balance >= 0) {
-  balanceEl.style.color = "#00e676";
-} else {
-  balanceEl.style.color = "#ff5252";
 }
 update();

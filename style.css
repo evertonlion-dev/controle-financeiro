@@ -6,6 +6,10 @@ body {
   padding: 20px;
 }
 
+* {
+  transition: all 0.2s ease;
+}
+
 /* CONTAINER CENTRAL */
 .container {
   max-width: 400px;
@@ -13,7 +17,7 @@ body {
   background: rgba(255,255,255,0.05);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 /* TÍTULO */
@@ -46,6 +50,15 @@ button {
   cursor: pointer;
 }
 
+button {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
 .income {
   background-color: #00c853;
   color: white;
@@ -64,7 +77,8 @@ button:hover {
 .balance {
   text-align: center;
   margin: 20px 0;
-  font-size: 22px;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 /* LISTA */
@@ -82,18 +96,6 @@ li {
   margin: 10px 0;
   border-radius: 10px;
 }
-
-/* RESPONSIVO */
-@media (max-width: 500px) {
-  body {
-    padding: 10px;
-  }
-
-  .container {
-    padding: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  }
-}
 li {
   animation: fadeIn 0.3s ease;
 }
@@ -108,18 +110,14 @@ li {
     transform: translateY(0);
   }
 }
-button {
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
 
-button:active {
-  transform: scale(0.95);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-* {
-  transition: all 0.2s ease;
-}
-.balance {
-  font-size: 26px;
-  font-weight: bold;
+/* RESPONSIVO */
+@media (max-width: 500px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
 }
