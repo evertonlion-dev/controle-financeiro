@@ -82,6 +82,18 @@ li {
   margin: 10px 0;
   border-radius: 10px;
 }
+
+/* RESPONSIVO */
+@media (max-width: 500px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  }
+}
 li {
   animation: fadeIn 0.3s ease;
 }
@@ -96,14 +108,18 @@ li {
     transform: translateY(0);
   }
 }
+button {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
 
-/* RESPONSIVO */
-@media (max-width: 500px) {
-  body {
-    padding: 10px;
-  }
-
-  .container {
-    padding: 15px;
-  }
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+* {
+  transition: all 0.2s ease;
+}
+.balance {
+  font-size: 26px;
+  font-weight: bold;
 }
