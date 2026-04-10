@@ -9,8 +9,8 @@ function addExpense() {
 }
 
 function addTransaction(type) {
-  const desc = document.getElementById("desc").value;
-  const value = Number(document.getElementById("value").value);
+  const desc = document.getElementById("desc").value = "";
+  const value = Number(document.getElementById("value").value = "");
 
   if (!desc || !value) return;
 
@@ -18,6 +18,11 @@ function addTransaction(type) {
 
   saveData();
   update();
+  if (transactions.length === 0) {
+  list.innerHTML = "<p>Nenhuma transação ainda</p>";
+  balanceEl.textContent = 0;
+  return;
+}
 }
 
 function update() {
@@ -48,10 +53,18 @@ function update() {
     };
 
     li.appendChild(btn);
+    if (t.type === "entrada") {
+  li.style.borderLeft = "5px solid #00e676";
+} else {
+  li.style.borderLeft = "5px solid #ff5252";
+}
     list.appendChild(li);
   });
 
-  balanceEl.textContent = balance;
+  balanceEl.textContent = balance.toLocaleString("pt-BR", {
+  style: "currency",
+  currency: "BRL"
+});
 
   if (balance >= 0) {
   balanceEl.style.color = "#00e676";
@@ -64,3 +77,15 @@ function saveData() {
   localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 update();
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
+showToast("Transação adicionada 💰");
+toast.style.background = "#d50000";
